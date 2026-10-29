@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A to Z Delivery - Connect</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f6f8; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 90vh; }
+    .card { background: #fff; width: 100%; max-width: 360px; border-radius: 16px; padding: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); text-align: center; }
+    .logo { width: 70px; height: 70px; background: #2e7d32; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: bold; margin: 0 auto 12px; }
+    h2 { margin: 0; color: #1b5e20; font-size: 20px; }
+    p.sub { color: #666; font-size: 13px; margin: 4px 0 20px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; margin-bottom: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 15px; box-sizing: border-box; transition: 0.2s; }
+    .btn-pwa { background: #ff9800; color: #fff; }
+    .btn-wa { background: #25d366; color: #fff; }
+    .btn-call { background: #2e7d32; color: #fff; }
+    .btn-contact { background: #0288d1; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">A-Z</div>
+    <h2>A to Z Delivery</h2>
+    <p class="sub">Kolluru Hub - Fresh Food & Groceries</p>
+
+    <!-- 1. Open / Install PWA App -->
+    <a href="index.html" class="btn btn-pwa">📲 Open & Install App</a>
+
+    <!-- 2. Order through WhatsApp -->
+    <a href="https://wa.me/917794003376?text=Hi%2C%20nenu%20A%20to%20Z%20Delivery%20lo%20order%20ivvali%20anukuntunnanu" class="btn btn-wa">💬 Order on WhatsApp</a>
+
+    <!-- 3. Call Directly -->
+    <a href="tel:7794003376" class="btn btn-call">📞 Call 77940 03376</a>
+
+    <!-- 4. Save Contact to Phone -->
+    <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:A to Z Delivery Kolluru%0ATEL:7794003376%0AEND:VCARD" download="AtoZ_Delivery.vcf" class="btn btn-contact">👤 Save Contact</a>
+  </div>
+</body>
+</html>
