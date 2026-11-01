@@ -29,5 +29,43 @@
       navigator.serviceWorker.register('sw.js');
     }
   </script>
+  <!-- Install Now Popup Box -->
+<div id="pwa-install-banner" style="display:none; position:fixed; bottom:25px; left:50%; transform:translateX(-50%); width:90%; max-width:380px; background:#ffffff; box-shadow:0 8px 30px rgba(0,0,0,0.35); border-radius:14px; padding:18px; z-index:999999; text-align:center; font-family:sans-serif; border:1px solid #e0e0e0;">
+  <h3 style="margin:0 0 6px; font-size:18px; color:#1a1a1a;">A to Z Delivery</h3>
+  <p style="margin:0 0 14px; font-size:13px; color:#555;">మా సర్వీస్ వేగంగా పొందడానికి యాప్‌ను ఇన్‌స్టాల్ చేసుకోండి.</p>
+  <button id="pwa-install-btn" style="background:#28a745; color:#ffffff; border:none; padding:12px 20px; font-size:15px; font-weight:bold; border-radius:8px; cursor:pointer; width:100%; box-shadow:0 3px 8px rgba(40,167,69,0.3);">
+    Install Now
+  </button>
+</div>
+
+<script>
+  let deferredPrompt;
+  const banner = document.getElementById('pwa-install-banner');
+  const installButton = document.getElementById('pwa-install-btn');
+
+  // కస్టమర్ మొబైల్‌లో సైట్ ఓపెన్ అవ్వగానే ఇన్స్టాల్ ప్రాంప్ట్ సిద్ధం చేస్తుంది
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // బ్యానర్‌ను స్క్రీన్‌పై చూపిస్తుంది
+    banner.style.display = 'block';
+  });
+
+  // కస్టమర్ Install Now బటన్ నొక్కగానే
+  installButton.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      banner.style.display = 'none';
+    }
+  });
+
+  // యాప్ పూర్తిగా ఇన్‌స్టాల్ అయ్యాక బ్యానర్ కనిపించకుండా చేస్తుంది
+  window.addEventListener('appinstalled', () => {
+    banner.style.display = 'none';
+    deferredPrompt = null;
+  });
+</script>
 </body>
 </html>
